@@ -9,49 +9,42 @@ La rama de desarrollo, donde se integran todas las características que ya está
 3. feature/*:
 Cada nueva funcionalidad debe desarrollarse en una rama de feature. Se crea con el siguiente comando:
 
-bash
-Copy
-Edit
+```bash
 git flow feature start nombre-feature
+```
 Para finalizar una rama de característica y fusionarla en develop:
 
-bash
-Copy
-Edit
+```bash
 git flow feature finish nombre-feature
+```
 4. release/*:
 Una vez que tienes varias funcionalidades listadas y quieres preparar una nueva versión para producción, puedes crear una rama de release:
 
-bash
-Copy
-Edit
+```bash
 git flow release start nombre-version
+```
 Cuando estés listo para lanzar la nueva versión, puedes fusionar esta rama tanto en master como en develop:
 
-bash
-Copy
-Edit
+```bash
 git flow release finish nombre-version
+```
 5. hotfix/*:
 Si encuentras un error crítico en producción, puedes crear una rama hotfix desde master para corregirlo rápidamente:
 
-bash
-Copy
-Edit
+```bash
 git flow hotfix start nombre-hotfix
+```
 Una vez corregido el problema, fusiona la rama hotfix de nuevo en master y develop:
 
-bash
-Copy
-Edit
+```bash
 git flow hotfix finish nombre-hotfix
+```
 4. Visualizar el flujo de trabajo
 En cualquier momento puedes ver el estado de tu repositorio y las ramas con:
 
-bash
-Copy
-Edit
+```bash
 git flow config
+```
 
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
