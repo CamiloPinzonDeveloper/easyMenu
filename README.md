@@ -1,45 +1,45 @@
-trabajar con las siguientes ramas de acuerdo a la metodología:
+## Trabajar con las siguientes ramas de acuerdo a la tarea:
 
-1. master:
+###1. master:
 La rama de producción, donde siempre debe estar el código listo para ser desplegado.
 
-2. develop:
+###2. develop:
 La rama de desarrollo, donde se integran todas las características que ya están listas para ser probadas.
 
-3. feature/*:
-Cada nueva funcionalidad debe desarrollarse en una rama de feature. Se crea con el siguiente comando:
+###3. feature/*:
+- Cada nueva funcionalidad debe desarrollarse en una rama de feature. Se crea con el siguiente comando:
 
 ```bash
 git flow feature start nombre-feature
 ```
-Para finalizar una rama de característica y fusionarla en develop:
+- Para finalizar una rama de característica y fusionarla en develop:
 
 ```bash
 git flow feature finish nombre-feature
 ```
-4. release/*:
-Una vez que tienes varias funcionalidades listadas y quieres preparar una nueva versión para producción, puedes crear una rama de release:
+###4. release/*:
+- Una vez que tienes varias funcionalidades listadas y quieres preparar una nueva versión para producción, puedes crear una rama de release:
 
 ```bash
 git flow release start nombre-version
 ```
-Cuando estés listo para lanzar la nueva versión, puedes fusionar esta rama tanto en master como en develop:
+- Cuando estés listo para lanzar la nueva versión, puedes fusionar esta rama tanto en master como en develop:
 
 ```bash
 git flow release finish nombre-version
 ```
-5. hotfix/*:
-Si encuentras un error crítico en producción, puedes crear una rama hotfix desde master para corregirlo rápidamente:
+###5. hotfix/*:
+- Si encuentras un error crítico en producción, puedes crear una rama hotfix desde master para corregirlo rápidamente:
 
 ```bash
 git flow hotfix start nombre-hotfix
 ```
-Una vez corregido el problema, fusiona la rama hotfix de nuevo en master y develop:
+- Una vez corregido el problema, fusiona la rama hotfix de nuevo en master y develop:
 
 ```bash
 git flow hotfix finish nombre-hotfix
 ```
-4. Visualizar el flujo de trabajo
+### 6. Visualizar el flujo de trabajo
 En cualquier momento puedes ver el estado de tu repositorio y las ramas con:
 
 ```bash
