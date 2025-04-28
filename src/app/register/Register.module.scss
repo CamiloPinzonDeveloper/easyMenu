@@ -1,0 +1,50 @@
+.registerContainer {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}
+
+.registerForm {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        margin-top: 1rem;
+        font-weight: bold;
+    }
+
+    input {
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+    }
+
+    button {
+        margin-top: 2rem;
+        padding: 1rem;
+        font-size: 1rem;
+        background-color: #008cba;
+        color: white;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #005f75;
+        }
+    }
+
+    .error {
+        color: red;
+        margin-top: 1rem;
+    }
+
+    .success {
+        color: green;
+        margin-top: 1rem;
+    }
+}
