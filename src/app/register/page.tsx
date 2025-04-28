@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
-import styles from 'Register.module.scss';
+import styles from './Register.module.scss';
 
 const defaultFormFields = {
   businessName: '',
@@ -48,7 +48,7 @@ const RegisterPage = () => {
 
   return (
     <div className={styles.registerContainer}>
-      <h1>Crear cuenta de extablecimiento</h1>
+      <h1>Crear cuenta de Establecimiento</h1>
       <form onSubmit={handleSubmit} className={styles.registerForm}>
         <label>Nombre del establecimiento</label>
         <input
