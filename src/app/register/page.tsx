@@ -2,9 +2,16 @@
 
 import { useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
-import styles from 'Register.module.scss';
+import styles from './Register.module.scss';
 
-const defaultFormFields = {
+type FormFields = {
+  businessName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
+
+const defaultFormFields: FormFields = {
   businessName: '',
   email: '',
   password: '',
@@ -12,7 +19,7 @@ const defaultFormFields = {
 };
 
 const RegisterPage = () => {
-  const [formFields, setFormFields] = useState(defaultFormFields);
+  const [formFields, setFormFields] = useState<FormFields>(defaultFormFields);
   const { businessName, email, password, confirmPassword } = formFields;
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
@@ -52,6 +59,7 @@ const RegisterPage = () => {
       <form onSubmit={handleSubmit} className={styles.registerForm}>
         <label>Nombre del establecimiento</label>
         <input
+          name="businessName"
           type="text"
           value={businessName}
           onChange={handleFormChange}
@@ -61,6 +69,7 @@ const RegisterPage = () => {
 
         <label>Correo electrónico</label>
         <input
+          name="email"
           type="email"
           value={email}
           onChange={handleFormChange}
@@ -70,6 +79,7 @@ const RegisterPage = () => {
 
         <label>Contraseña</label>
         <input
+          name="password"
           type="password"
           value={password}
           onChange={handleFormChange}
@@ -79,6 +89,7 @@ const RegisterPage = () => {
 
         <label>Confirmar contraseña</label>
         <input
+          name="confirmPassword"
           type="password"
           value={confirmPassword}
           onChange={handleFormChange}
