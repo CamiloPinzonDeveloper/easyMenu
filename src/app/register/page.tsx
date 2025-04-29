@@ -27,6 +27,9 @@ const RegisterPage = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    setErrorMessage('');
+    setSuccessMessage('');
+
     if (password !== confirmPassword) {
       setErrorMessage('Las contraseñas no coinciden');
       return;
@@ -42,10 +45,22 @@ const RegisterPage = () => {
 
     if (error) {
       setErrorMessage(error.message);
-    } else {
-      setSuccessMessage('Cuenta creada exitosamente');
-      setFormFields(defaultFormFields);
+      return;
     }
+
+    const { error: insertError } = await supabase.from('owners').insert({
+      email,
+      business_name: businessName,
+      created_at: new Date(),
+    });
+
+    if (insertError) {
+      setErrorMessage('Error al guardar datos del negocio: ' + insertError.message);
+      return;
+    }
+
+    setSuccessMessage('Cuenta creada exitosamente');
+    setFormFields(defaultFormFields);
   };
 
   const handleFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,7 +70,7 @@ const RegisterPage = () => {
 
   return (
     <div className={styles.registerContainer}>
-      <h1>Crear cuenta de extablecimiento</h1>
+      <h1>Crear cuenta de Establecimiento</h1>
       <form onSubmit={handleSubmit} className={styles.registerForm}>
         <label>Nombre del establecimiento</label>
         <input
