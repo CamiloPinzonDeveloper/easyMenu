@@ -118,6 +118,7 @@ const RegisterPage = () => {
     }
 
     const { error: insertError } = await supabase.from('restaurants').insert({
+      owner_id: userId,
       business_name: businessName,
       description,
       logo: logo,
