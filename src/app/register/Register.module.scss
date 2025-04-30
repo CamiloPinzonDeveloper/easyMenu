@@ -10,8 +10,18 @@
 }
 
 .registerForm {
-    display: flex;
-    flex-direction: column;
+    &__stage {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .visible {
+        display: flex;
+    }
+
+    .hidden {
+        display: none;
+    }
 
     label {
         margin-top: 1rem;
