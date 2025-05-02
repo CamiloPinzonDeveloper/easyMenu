@@ -69,14 +69,18 @@ const RegisterPage = () => {
   };
 
   const uploadLogo = async (file: File, userId: string) => {
-    const {
-      data: { user },
-      error,
-    } = await supabase.auth.getUser();
-
-    if (!user) {
-      throw new Error('El usuario no está autenticado: ' + error?.message);
-    }
+    console.log('Uploading logo:', file);
+    console.log('User ID:', userId);
+    console.log('File name:', file.name);
+    console.log('File type:', file.type);
+    console.log('File size:', file.size);
+    console.log('File last modified:', file.lastModified);
+    console.log('File last modified date:', new Date(file.lastModified));
+    console.log('File last modified date (formatted):', file.lastModified.toString());
+    console.log(
+      'File last modified date (formatted):',
+      new Date(file.lastModified).toLocaleString()
+    );
 
     const fileExt = file.name.split('.').pop();
     const fileName = `${userId}/${generateUniqueId()}.${fileExt}`;
