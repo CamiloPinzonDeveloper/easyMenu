@@ -72,13 +72,23 @@ const RegisterPage = () => {
     const fileExt = file.name.split('.').pop();
     const fileName = `${userId}/${generateUniqueId()}.${fileExt}`;
 
-    const { error } = await supabase.storage
+    const { error: uploadError } = await supabase.storage
       .from('public-images')
-      .upload(fileName, file, { cacheControl: '3600', upsert: true });
+      .upload(fileName, file, {
+        cacheControl: '3600',
+        upsert: true,
+      });
 
-    if (error) throw error;
+    if (uploadError) {
+      throw new Error('Error al subir el archivo: ' + uploadError.message);
+    }
 
     const { data } = supabase.storage.from('public-images').getPublicUrl(fileName);
+
+    if (!data?.publicUrl) {
+      throw new Error('No se pudo obtener la URL pública del logo');
+    }
+
     return data.publicUrl;
   };
 
