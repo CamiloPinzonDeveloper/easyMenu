@@ -128,18 +128,6 @@ const RegisterPage = () => {
 
     const userId = signUpData.user?.id;
 
-    const {
-      data: { user },
-      error,
-    } = await supabase.auth.getUser();
-
-    if (error || !user) {
-      console.error('⚠️ El usuario no está autenticado');
-      return;
-    }
-
-    console.log('✅ Usuario autenticado:', user.id);
-
     let logoURL = '';
     if (userId && logo && logo instanceof File) {
       try {
