@@ -104,10 +104,10 @@ const RegisterPage = () => {
     }
 
     const userId = signUpData.user?.id;
-
+    let logoURL = '';
     if (userId && logo && logo instanceof File) {
       try {
-        await uploadLogo(logo, userId);
+        logoURL = await uploadLogo(logo, userId);
       } catch (error) {
         setErrorMessage('Error al subir el logo: ' + (error as Error).message);
         return;
@@ -121,7 +121,7 @@ const RegisterPage = () => {
       owner_id: userId,
       business_name: businessName,
       description,
-      logo: logo,
+      logo: logoURL,
       color_background,
       color_primary,
       color_secondary,
