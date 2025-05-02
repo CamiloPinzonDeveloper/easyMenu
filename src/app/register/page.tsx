@@ -69,6 +69,15 @@ const RegisterPage = () => {
   };
 
   const uploadLogo = async (file: File, userId: string) => {
+    const {
+      data: { user },
+      error,
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      throw new Error('El usuario no está autenticado: ' + error?.message);
+    }
+
     const fileExt = file.name.split('.').pop();
     const fileName = `${userId}/${generateUniqueId()}.${fileExt}`;
 
