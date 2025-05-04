@@ -108,7 +108,7 @@ const RegisterPage = () => {
 
   return (
     <div className={styles.registerContainer}>
-      <h1>Crear cuenta de Establecimiento</h1>
+      <h1>Crear Tu Cuenta</h1>
       <form onSubmit={handleSubmit} className={styles.registerForm}>
         <FormInput
           label="Nombre del establecimiento"
