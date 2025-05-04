@@ -8,29 +8,3 @@
         margin-bottom: 2rem;
     }
 }
-
-.registerForm {
-    button {
-        margin-top: 2rem;
-        padding: 1rem;
-        font-size: 1rem;
-        background-color: #008cba;
-        color: white;
-        border: none;
-        cursor: pointer;
-
-        &:hover {
-            background-color: #005f75;
-        }
-    }
-
-    .error {
-        color: red;
-        margin-top: 1rem;
-    }
-
-    .success {
-        color: green;
-        margin-top: 1rem;
-    }
-}

@@ -6,6 +6,7 @@ import { supabase } from '@/lib/supabaseClient';
 
 import FormInput from '@/components/formInput/formInput';
 import MessageBox from '@/components/messageBox/messageBox';
+import Button from '@/components/button/button';
 
 import styles from './Register.module.scss';
 
@@ -151,9 +152,7 @@ const RegisterPage = () => {
         />
         {<MessageBox errorMessage={errorMessage} successMessage={successMessage} />}
 
-        <button type="submit" className={styles.submitButton}>
-          Crear cuenta
-        </button>
+        <Button type="submit" kind="cta" buttonText="Crear Cuenta" />
       </form>
     </div>
   );
