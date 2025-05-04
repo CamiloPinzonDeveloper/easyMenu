@@ -7,8 +7,6 @@ import { supabase } from '@/lib/supabaseClient';
 import FormInput from '@/components/formInput/formInput';
 import MessageBox from '@/components/messageBox/messageBox';
 
-//import { generateUniqueId } from '@/utils/IdGenerator';
-
 import styles from './Register.module.scss';
 
 type FormFields = {
