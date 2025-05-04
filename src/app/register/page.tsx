@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 import { useRouter } from 'next/navigation';
 
+import FormInput from '@/components/formInput/formInput';
+
 //import { generateUniqueId } from '@/utils/IdGenerator';
 
 import styles from './Register.module.scss';
@@ -121,42 +123,42 @@ const RegisterPage = () => {
     <div className={styles.registerContainer}>
       <h1>Crear cuenta de Establecimiento</h1>
       <form onSubmit={handleSubmit} className={styles.registerForm}>
-        <label>Nombre del establecimiento</label>
-        <input
+        <FormInput
+          label="Nombre del establecimiento"
           name="businessName"
           type="text"
           value={businessName}
-          onChange={handleFormChange}
-          required
+          handleFormChange={handleFormChange}
+          required={true}
           placeholder="Escribe el nombre del establecimiento"
         />
 
-        <label>Correo electrónico</label>
-        <input
+        <FormInput
+          label="Correo electrónico"
           name="email"
           type="email"
           value={email}
-          onChange={handleFormChange}
+          handleFormChange={handleFormChange}
           required
           placeholder="Escribe tu correo electrónico"
         />
 
-        <label>Contraseña</label>
-        <input
+        <FormInput
+          label="Contraseña"
           name="password"
           type="password"
           value={password}
-          onChange={handleFormChange}
+          handleFormChange={handleFormChange}
           required
           placeholder="Escribe tu contraseña"
         />
 
-        <label>Confirmar contraseña</label>
-        <input
+        <FormInput
+          label="Confirmar contraseña"
           name="confirmPassword"
           type="password"
           value={confirmPassword}
-          onChange={handleFormChange}
+          handleFormChange={handleFormChange}
           required
           placeholder="Confirma tu contraseña"
         />
