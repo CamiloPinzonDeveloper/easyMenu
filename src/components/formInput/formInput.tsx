@@ -1,6 +1,4 @@
-'use strict';
-
-import './formInput.scss';
+import styles from './formInput.module.scss';
 
 interface FormInputProps {
   label: string;
@@ -24,8 +22,8 @@ const FormInput = ({
   disabled,
 }: FormInputProps) => {
   return (
-    <div className="form-input">
-      <label htmlFor={name} className="label">
+    <div className={styles.formInput}>
+      <label htmlFor={name} className={styles.label}>
         {label}
       </label>
       <input
@@ -33,7 +31,7 @@ const FormInput = ({
         placeholder={placeholder}
         onChange={handleFormChange}
         name={name}
-        className="input"
+        className={styles.input}
         value={value}
         required={required}
         disabled={disabled}
