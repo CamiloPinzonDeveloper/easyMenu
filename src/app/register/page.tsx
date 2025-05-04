@@ -2,11 +2,10 @@
 
 import { useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
-import { useRouter } from 'next/navigation';
+//import { useRouter } from 'next/navigation';
 
 import FormInput from '@/components/formInput/formInput';
-
-//import { generateUniqueId } from '@/utils/IdGenerator';
+import MessageBox from '@/components/messageBox/messageBox';
 
 import styles from './Register.module.scss';
 
@@ -25,7 +24,7 @@ const defaultFormFields: FormFields = {
 };
 
 const RegisterPage = () => {
-  const router = useRouter();
+  //const router = useRouter();
 
   const [formFields, setFormFields] = useState<FormFields>(defaultFormFields);
   const { businessName, email, password, confirmPassword } = formFields;
@@ -76,7 +75,7 @@ const RegisterPage = () => {
       return;
     }
 
-    const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+    const { error: signUpError } = await supabase.auth.signUp({
       email,
       password,
       options: { data: { business_name: businessName } },
@@ -85,12 +84,7 @@ const RegisterPage = () => {
     if (signUpError) {
       setErrorMessage(signUpError.message);
       return;
-    } else {
-      //Modal confirmar en correo
-      router.push('/login');
     }
-
-    const userId = signUpData.user?.id;
     /*let logoURL = '';
     if (userId && logo && logo instanceof File) {
       try {
@@ -104,19 +98,12 @@ const RegisterPage = () => {
       return;
     }*/
 
-    const { error: insertError } = await supabase.from('restaurants').insert({
-      owner_id: userId,
-      business_name: businessName,
-      created_at: new Date(),
-    });
-
-    if (insertError) {
-      setErrorMessage('Error al guardar datos del negocio: ' + insertError.message);
-      return;
-    }
-
-    setSuccessMessage('Cuenta creada exitosamente');
+    setSuccessMessage('Se ha enviado un correo de confirmación a ' + email);
     setFormFields(defaultFormFields);
+    setTimeout(() => {
+      //router.push('/login');
+      console.log('ir a login');
+    }, 3000);
   };
 
   return (
@@ -162,8 +149,8 @@ const RegisterPage = () => {
           required
           placeholder="Confirma tu contraseña"
         />
-        {errorMessage && <p className={styles.error}>{errorMessage}</p>}
-        {successMessage && <p className={styles.success}>{successMessage}</p>}
+        {<MessageBox errorMessage={errorMessage} successMessage={successMessage} />}
+
         <button type="submit" className={styles.submitButton}>
           Crear cuenta
         </button>
