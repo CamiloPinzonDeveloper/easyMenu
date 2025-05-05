@@ -35,6 +35,26 @@ a {
   text-decoration: none;
 }
 
+.wideContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container-sm {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.container-xs {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

@@ -1,9 +1,12 @@
-'use strict';
+'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabaseClient';
+import { useRouter } from 'next/navigation';
 
 import FormInput from '@/components/formInput/formInput';
 import MessageBox from '@/components/messageBox/messageBox';
+import Button from '@/components/button/button';
 
 import styles from './Login.module.scss';
 
@@ -18,21 +21,51 @@ const defaultFormFields: FormFields = {
 };
 
 const LoginPage = () => {
+  const router = useRouter();
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        router.push('/dashboard');
+      } else {
+        console.warn('No hay sesión activa');
+      }
+    });
+  }, []);
+
   const [formFields, setFormFields] = useState<FormFields>(defaultFormFields);
   const { email, password } = formFields;
 
-  const [errorMessage] = useState('');
-  const [successMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleFormChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target as HTMLInputElement;
     setFormFields((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setErrorMessage('');
+    setSuccessMessage('');
+
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (signInError) {
+      setErrorMessage(signInError.message);
+      return;
+    }
+
+    setSuccessMessage('Iniciaste sesión correctamente');
+    router.push('/dashboard');
+  };
+
   return (
-    <div className={styles.loginPage}>
+    <div className={`container ${styles.loginContainer}`}>
       <h1>Ingresa a tu cuenta</h1>
-      <form>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <FormInput
           label="Correo electrónico"
           name="email"
@@ -55,9 +88,7 @@ const LoginPage = () => {
 
         {<MessageBox errorMessage={errorMessage} successMessage={successMessage} />}
 
-        <button type="submit" className={styles.submitButton}>
-          Iniciar sesión
-        </button>
+        <Button type="submit" kind="cta" buttonText="Iniciar sesión" />
       </form>
     </div>
   );

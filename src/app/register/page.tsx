@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
-//import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import FormInput from '@/components/formInput/formInput';
 import MessageBox from '@/components/messageBox/messageBox';
@@ -25,7 +25,7 @@ const defaultFormFields: FormFields = {
 };
 
 const RegisterPage = () => {
-  //const router = useRouter();
+  const router = useRouter();
 
   const [formFields, setFormFields] = useState<FormFields>(defaultFormFields);
   const { businessName, email, password, confirmPassword } = formFields;
@@ -102,7 +102,7 @@ const RegisterPage = () => {
     setSuccessMessage('Se ha enviado un correo de confirmación a ' + email);
     setFormFields(defaultFormFields);
     setTimeout(() => {
-      //router.push('/login');
+      router.push('/login');
       console.log('ir a login');
     }, 3000);
   };
