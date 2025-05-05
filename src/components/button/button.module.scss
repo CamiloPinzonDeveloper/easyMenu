@@ -1,0 +1,17 @@
+.baseButton {
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.cta {
+    background-color: #008cba;
+    color: white;
+
+    &:hover {
+        background-color: #005f75;
+    }
+}
