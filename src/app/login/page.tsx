@@ -26,8 +26,7 @@ const LoginPage = () => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
         console.log('Sesión activa:', session);
-        // Redirigir a la página de dashboard o donde desees
-        //router.push('/dashboard');
+        router.push('/dashboard');
       } else {
         console.warn('No hay sesión activa');
       }
