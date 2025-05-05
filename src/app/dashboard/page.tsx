@@ -1,3 +1,5 @@
+'use client';
+
 const Dasboard = () => {
   return <h1>Dashboard</h1>;
 };

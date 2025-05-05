@@ -25,7 +25,9 @@ const LoginPage = () => {
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
-        router.push('/dashboard');
+        console.log('Sesión activa:', session);
+        // Redirigir a la página de dashboard o donde desees
+        //router.push('/dashboard');
       } else {
         console.warn('No hay sesión activa');
       }
@@ -63,9 +65,9 @@ const LoginPage = () => {
   };
 
   return (
-    <div className={`container ${styles.loginContainer}`}>
+    <div className={`container`}>
       <h1>Ingresa a tu cuenta</h1>
-      <form onSubmit={handleSubmit} className={styles.form}>
+      <form onSubmit={handleSubmit}>
         <FormInput
           label="Correo electrónico"
           name="email"
@@ -90,6 +92,14 @@ const LoginPage = () => {
 
         <Button type="submit" kind="cta" buttonText="Iniciar sesión" />
       </form>
+      <div className={`${styles.registerContainer}`}>
+        <p>
+          No tienes una cuenta? <a href="/register">Registrate</a>
+        </p>
+        <p>
+          Olvidaste tu contraseña? <a href="/recuperacion">Recuperar contraseña</a>
+        </p>
+      </div>
     </div>
   );
 };

@@ -38,21 +38,31 @@ a {
 .wideContainer {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 2rem;
 }
 
 .container {
   max-width: 800px;
   margin: 0 auto;
+  padding: 2rem;
 }
 
 .container-sm {
   max-width: 600px;
   margin: 0 auto;
+  padding: 2rem;
 }
 
 .container-xs {
   max-width: 400px;
   margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
 }
 
 @media (prefers-color-scheme: dark) {

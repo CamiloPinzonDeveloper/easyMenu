@@ -2,13 +2,11 @@
 
 import { useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
-import { useRouter } from 'next/navigation';
+//import { useRouter } from 'next/navigation';
 
 import FormInput from '@/components/formInput/formInput';
 import MessageBox from '@/components/messageBox/messageBox';
 import Button from '@/components/button/button';
-
-import styles from './Register.module.scss';
 
 type FormFields = {
   businessName: string;
@@ -25,7 +23,7 @@ const defaultFormFields: FormFields = {
 };
 
 const RegisterPage = () => {
-  const router = useRouter();
+  //const router = useRouter();
 
   const [formFields, setFormFields] = useState<FormFields>(defaultFormFields);
   const { businessName, email, password, confirmPassword } = formFields;
@@ -102,15 +100,15 @@ const RegisterPage = () => {
     setSuccessMessage('Se ha enviado un correo de confirmación a ' + email);
     setFormFields(defaultFormFields);
     setTimeout(() => {
-      router.push('/login');
+      //router.push('/login');
       console.log('ir a login');
     }, 3000);
   };
 
   return (
-    <div className={styles.registerContainer}>
+    <div className={`container`}>
       <h1>Crear Tu Cuenta</h1>
-      <form onSubmit={handleSubmit} className={styles.registerForm}>
+      <form onSubmit={handleSubmit}>
         <FormInput
           label="Nombre del establecimiento"
           name="businessName"
