@@ -76,7 +76,6 @@
             width: 100%;
             background-color: #000;
 
-            // Animación al desplegar
             max-height: 0;
             overflow: hidden;
             opacity: 0;
@@ -92,7 +91,7 @@
             }
 
             &.open {
-                max-height: 100dvh; // Ajusta según el contenido
+                max-height: 100dvh;
                 opacity: 1;
             }
         }

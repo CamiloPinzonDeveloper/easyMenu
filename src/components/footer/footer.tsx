@@ -1,9 +1,13 @@
+import styles from './footer.module.scss';
+
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-4">
-      <div className="container mx-auto text-center">
-        <p>&copy; 2023 Your Company. All rights reserved.</p>
-        <p>
+    <footer className={`${styles.footer}`}>
+      <div className={`${styles.footerContent}`}>
+        <p className={styles.copyright}>
+          &copy; {new Date().getFullYear()} Easy Menu. All rights reserved.
+        </p>
+        <p className={styles.socialLinks}>
           Follow us on{' '}
           <a href="https://twitter.com/yourcompany" className="text-blue-400">
             Twitter
