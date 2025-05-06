@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import type { Session } from '@supabase/supabase-js';
 
@@ -39,9 +40,23 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={`${styles.container}`}>
-        <div className={`${styles.logo}`}>
-          <Link href="/">Easy Menu</Link>
-        </div>
+        <Link href="/">
+          <div className={`${styles.logo}`}>
+            <Image
+              src="/EasyMenu.svg"
+              alt="Easy Menu"
+              width={100}
+              height={100}
+              className={styles.logoImage}
+              loading="eager"
+              quality={100}
+            />
+            <p className={styles.logoText}>
+              <span className={styles.logoText1}>Easy</span>
+              <span className={styles.logoText2}>Menu</span>
+            </p>
+          </div>
+        </Link>
 
         <button className={styles.toggle} onClick={handleMenuToggle}>
           <span className={styles.bar}></span>

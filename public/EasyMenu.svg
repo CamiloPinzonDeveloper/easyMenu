@@ -1,0 +1,24 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+	<title>Easy Menu</title>
+	<style>
+		.s0 { fill: none;stroke: #000000;stroke-miterlimit:10;stroke-width: 55 } 
+	</style>
+	<g id="Layer 1">
+		<g id="Carpeta 1">
+			<path id="Forma 2" fill-rule="evenodd" class="s0" d="m168.7 27v133.7h-133.7v-133.7z"/>
+			<path id="Forma 2 copy" fill-rule="evenodd" class="s0" d="m563.4 27v133.7h-133.8v-133.7z"/>
+			<path id="Forma 2 copy 2" fill-rule="evenodd" class="s0" d="m168.7 440.5v133.7h-133.7v-133.7z"/>
+			<path id="Forma 3" fill-rule="evenodd" class="s0" d="m311.5 81.2v25.4h-25.4v-25.4z"/>
+			<path id="Forma 3 copy" fill-rule="evenodd" class="s0" d="m259 499.6v25.4h-25.4v-25.4z"/>
+			<path id="Forma 3 copy 8" fill-rule="evenodd" class="s0" d="m259 347.8v25.4h-25.4v-25.4z"/>
+			<path id="Forma 3 copy 10" fill-rule="evenodd" class="s0" d="m169.6 347.8v25.4h-25.5v-25.4z"/>
+			<path id="Forma 3 copy 4" fill-rule="evenodd" class="s0" d="m454.3 440.5v25.4h-25.5v-25.4z"/>
+			<path id="Forma 3 copy 2" fill-rule="evenodd" class="s0" d="m565.8 548v25.4h-68.9v-25.4z"/>
+			<path id="Forma 3 copy 5" fill-rule="evenodd" class="s0" d="m103.9 232.9v25.5h-68.9v-25.5z"/>
+			<path id="Forma 3 copy 3" fill-rule="evenodd" class="s0" d="m565.8 442.2v61.5h-25.4v-61.5z"/>
+			<path id="Forma 3 copy 6" fill-rule="evenodd" class="s0" d="m339.4 234.6h25.4v68.9h-25.4z"/>
+			<path id="Forma 3 copy 9" fill-rule="evenodd" class="s0" d="m429.6 234.6h25.5v68.9h-25.5z"/>
+			<path id="Forma 3 copy 7" fill-rule="evenodd" class="s0" d="m503.5 348.6h61.5v25.5h-61.5z"/>
+		</g>
+	</g>
+</svg>
