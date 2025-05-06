@@ -92,7 +92,7 @@
             }
 
             &.open {
-                max-height: 500px; // Ajusta según el contenido
+                max-height: 100dvh; // Ajusta según el contenido
                 opacity: 1;
             }
         }
