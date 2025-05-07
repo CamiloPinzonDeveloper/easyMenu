@@ -7,7 +7,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <Header />
-      <main className="flex flex-col min-h-screen bg-gray-100">{children}</main>
+      <main>{children}</main>
       <Footer />
     </>
   );

@@ -28,12 +28,16 @@
     background: #fff;
 
     h1 {
-        font-size: 48px;
+        font-size: 3rem;
+        line-height: 3rem;
+
+        @media (max-width: 768px) {
+            line-height: 2.7rem;
+        }
 
         strong {
-            font-weight: bolder;
+            font-size: 3rem;
             color: #283566;
-            ;
         }
 
         em {

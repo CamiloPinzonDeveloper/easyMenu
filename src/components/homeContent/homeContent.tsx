@@ -1,9 +1,10 @@
 import Image from 'next/image';
+import AnimatedUnderline from '../AnimatedUnderline/AnimatedUnderline';
 import styles from './HomeContent.module.scss';
 
 export default function HomeContent() {
   return (
-    <main>
+    <>
       <section className={`${styles.hero}`}>
         <div className={styles.imageContainer}>
           <Image
@@ -17,8 +18,11 @@ export default function HomeContent() {
         </div>
         <div className={`${styles.content}`}>
           <h1>
-            Menús digitales <strong>sencillos</strong>
-            <br />
+            Menús digitales
+            <strong>
+              {' '}
+              <AnimatedUnderline text="sencillos" />{' '}
+            </strong>
             <em>para cada mesa</em>
           </h1>
           <p>
@@ -33,6 +37,6 @@ export default function HomeContent() {
           </div>
         </div>
       </section>
-    </main>
+    </>
   );
 }
