@@ -39,7 +39,7 @@ export default function HomeContent() {
       </section>
       <section className={`wideContainer ${styles.innovative}`}>
         <div className={styles.content}>
-          <div className={styles.title}>Descubre las soluciones innovadoras de EasyMenu</div>
+          <h2 className={styles.title}>Descubre las soluciones innovadoras de EasyMenu</h2>
           <div className={styles.description}>
             EasyMenu está diseñado para transformar la experiencia gastronómica, permitiendo a los
             dueños de restaurantes crear menús digitales QR <strong>sin esfuerzo</strong>. Nuestra
@@ -54,6 +54,85 @@ export default function HomeContent() {
             fill
             sizes="(max-width: 1024px)"
           />
+        </div>
+      </section>
+      <section className={styles.features}>
+        <div className={`wideContainer ${styles.featuresContainer}`}>
+          <div className={styles.featureItem}>
+            <div>
+              <Image
+                src="/contactless.webp"
+                alt="Imagen de un cliente escaneando un código QR"
+                width={240}
+                height={327}
+                loading="lazy"
+              />
+              <div>
+                <h2>Pedidos sin contacto</h2>
+                <p>
+                  Mejore la experiencia del cliente con un sistema de pedidos seguro y sin contacto.
+                  Los clientes pueden ver el menú fácilmente y hacer pedidos directamente desde sus
+                  teléfonos.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className={styles.featureItem}>
+            <div>
+              <Image
+                src="/real_time.webp"
+                alt="Imagen de un cliente trabajando en un restaurante"
+                width={240}
+                height={327}
+                loading="lazy"
+              />
+              <div>
+                <h2>Actualización del menú en tiempo real</h2>
+                <p>
+                  Actualice fácilmente los artículos y precios de su menú en tiempo real. Mantenga a
+                  sus clientes informados sobre los especiales diarios y los cambios al instante.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className={styles.featureItem}>
+            <div>
+              <Image
+                src="/streamlined.webp"
+                alt="Imagen de un computador con EasyMenu en la pantalla"
+                width={240}
+                height={327}
+                loading="lazy"
+              />
+              <div>
+                <h2>Gestión de pedidos optimizada</h2>
+                <p>
+                  Reciba notificaciones instantáneas y haga un seguimiento eficiente de sus pedidos.
+                  Gestione la disponibilidad de sus mesas y marque los artículos como pagados
+                  fácilmente.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className={styles.featureItem}>
+            <div>
+              <Image
+                src="/customization.webp"
+                alt="Imagen de un menú digital personalizado"
+                width={240}
+                height={327}
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <h2>Amplias opciones de personalización</h2>
+              <p>
+                Personaliza tu menú digital para que combine con la imagen de marca de tu
+                restaurante. Adapta los colores, logotipos, texto de los botones e imágenes de
+                productos del menú para crear una experiencia única.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </>

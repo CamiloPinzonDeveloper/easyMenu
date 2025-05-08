@@ -30,6 +30,7 @@
     h1 {
         font-size: 3rem;
         line-height: 3rem;
+        text-wrap: balance;
 
         @media (max-width: 768px) {
             line-height: 2.7rem;
@@ -110,12 +111,62 @@
         }
 
         .description {
-            font-size: 1rem;
-            flex: 1.1;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            flex: 1;
         }
     }
 
     .imageInnovative {
         position: relative;
+    }
+}
+
+.features {
+    background-color: #fff;
+
+    .featuresContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 2rem;
+        padding: 2rem 0;
+        flex-wrap: wrap;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .featureItem {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            text-align: center;
+            max-width: 270px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+
+            h2 {
+                font-size: 1.5rem;
+                color: #283566;
+                margin-bottom: 1rem;
+                text-wrap: balance;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+        }
+
+        .featureItem:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-4px);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
     }
 }
