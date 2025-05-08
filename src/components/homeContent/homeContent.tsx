@@ -135,6 +135,80 @@ export default function HomeContent() {
           </div>
         </div>
       </section>
+      <section className={styles.keyFeatures}>
+        <div className={`wideContainer ${styles.keyFeaturesContainer}`}>
+          <div className={styles.keyFeaturesTextsContainer}>
+            <div className={styles.keyFeaturesTitle}>
+              <h2>
+                Explora las <em>características clave</em> de la plataforma EasyMenu
+              </h2>
+            </div>
+            <div className={styles.keyFeaturesDescription}>
+              <p>
+                Descubra cómo las innovadoras funciones de EasyMenu pueden transformar las
+                operaciones de su restaurante, mejorar la satisfacción del cliente y aumentar sus
+                ganancias. Desde la creación fluida de menús con códigos QR hasta el seguimiento de
+                pedidos en tiempo real, le ofrecemos las herramientas que necesita para triunfar en
+                el competitivo mercado actual.
+              </p>
+            </div>
+          </div>
+          <div className={styles.keyFeaturesItemsContainer}>
+            <div className={styles.keyFeaturesItem}>
+              <div className={styles.keyFeaturesItemImage}>
+                <Image
+                  src="/qr_creation.webp"
+                  alt="Imagen de un código QR en un celular"
+                  width={320}
+                  height={240}
+                  loading="lazy"
+                />
+              </div>
+              <h3>Creación de menús QR sin esfuerzo</h3>
+              <p>
+                Crea y personaliza tu menú digital fácilmente. Nuestra plataforma intuitiva te
+                permite actualizar artículos, precios y descripciones en tiempo real, garantizando
+                que tus clientes siempre tengan acceso a las últimas ofertas.
+              </p>
+            </div>
+            <div className={styles.keyFeaturesItem}>
+              <div className={styles.keyFeaturesItemImage}>
+                <Image
+                  src="/tracking.webp"
+                  alt="Imagen de una tablet con datos de seguimiento"
+                  width={320}
+                  height={240}
+                  loading="lazy"
+                />
+              </div>
+              <h3>Seguimiento de pedidos en tiempo real</h3>
+              <p>
+                Monitoree los pedidos desde su recepción hasta su pago con nuestro completo sistema
+                de seguimiento. Manténgase informado sobre la disponibilidad de mesas, el estado de
+                los pedidos y las preferencias de los clientes para optimizar su servicio y
+                minimizar los tiempos de espera.
+              </p>
+            </div>
+            <div className={styles.keyFeaturesItem}>
+              <div className={styles.keyFeaturesItemImage}>
+                <Image
+                  src="/cellphone_customization.webp"
+                  alt="Imagen de uncellular con un menú digital"
+                  width={320}
+                  height={240}
+                  loading="lazy"
+                />
+              </div>
+              <h3>Amplias opciones de personalización</h3>
+              <p>
+                Personaliza tu menú digital para que se adapte a la imagen de marca de tu
+                restaurante y crea una experiencia gastronómica única para tus clientes. Personaliza
+                colores, logotipos, texto de botones y más para reflejar la identidad de tu marca.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
