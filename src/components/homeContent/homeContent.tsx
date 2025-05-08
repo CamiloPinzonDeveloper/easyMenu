@@ -37,6 +37,25 @@ export default function HomeContent() {
           </div>
         </div>
       </section>
+      <section className={`wideContainer ${styles.innovative}`}>
+        <div className={styles.content}>
+          <div className={styles.title}>Descubre las soluciones innovadoras de EasyMenu</div>
+          <div className={styles.description}>
+            EasyMenu está diseñado para transformar la experiencia gastronómica, permitiendo a los
+            dueños de restaurantes crear menús digitales QR <strong>sin esfuerzo</strong>. Nuestra
+            plataforma optimiza la gestión de pedidos, mejora la satisfacción del cliente y ofrece
+            amplias opciones de personalización para satisfacer diversas necesidades.
+          </div>
+        </div>
+        <div className={styles.imageContainer}>
+          <Image
+            src="/innovative.webp"
+            alt="Imagen de código QR"
+            fill
+            sizes="(max-width: 1024px)"
+          />
+        </div>
+      </section>
     </>
   );
 }
