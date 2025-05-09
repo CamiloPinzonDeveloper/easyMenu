@@ -80,6 +80,12 @@
     padding: 0.75rem 1.5rem;
     font-weight: 600;
     cursor: pointer;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+
+    &:hover {
+        background: #283566;
+        color: #fff;
+    }
 }
 
 .innovative {
@@ -256,6 +262,58 @@
                     line-height: 1.6;
                     text-align: start;
                 }
+            }
+        }
+    }
+}
+
+.pricingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+
+
+    .plans {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        gap: 2rem;
+        flex-wrap: wrap;
+
+        .plan {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            max-width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            background-color: #fff;
+
+            h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                text-wrap: balance;
+                color: #283566;
+                font-weight: 600;
+                text-align: center;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+            }
+
+            strong {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: 2rem;
+                text-wrap: balance;
+                color: #283566;
             }
         }
     }

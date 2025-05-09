@@ -26,14 +26,14 @@ export default function HomeContent() {
             <em>para cada mesa</em>
           </h1>
           <p>
-            ¡Transforma tu restaurante, bar o pub con EasyMenu! Nuestra plataforma permite a los
+            ¡Transforme su restaurante, bar o pub con EasyMenu! Nuestra plataforma permite a los
             clientes escanear un código QR para ver tu menú, hacer pedidos sin tener que esperar al
             primer contacto físico, todo desde sus smartphones. Simplifica tus operaciones y mejora
             la satisfacción de tus clientes hoy mismo.
           </p>
           <div className={styles.buttons}>
-            <button className={styles.primary}>Learn More</button>
-            <button className={styles.outline}>Get Started</button>
+            <button className={styles.primary}>Saber Más</button>
+            <button className={styles.outline}>Iniciemos</button>
           </div>
         </div>
       </section>
@@ -205,6 +205,39 @@ export default function HomeContent() {
                 restaurante y crea una experiencia gastronómica única para tus clientes. Personaliza
                 colores, logotipos, texto de botones y más para reflejar la identidad de tu marca.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className={styles.pricing}>
+        <div className={`wideContainer ${styles.pricingContainer}`}>
+          <h2 className={styles.title}>Planes y Precios</h2>
+          <p className={styles.description}>
+            Ofrecemos una variedad de planes para adaptarse a las necesidades de tu restaurante. Ya
+            sea que estés comenzando o buscando una solución avanzada, tenemos el plan perfecto para
+            ti.
+          </p>
+          <div className={styles.plans}>
+            <div className={styles.plan}>
+              <h3>Plan Básico</h3>
+              <p>Ideal para pequeños restaurantes o bares que están empezando.</p>
+              <strong>$39.900 COP/mes</strong>
+              <button className={styles.primary}>Ver más</button>
+            </div>
+            <div className={styles.plan}>
+              <h3>Plan Profesional</h3>
+              <p>
+                Perfecto para restaurantes en crecimiento que necesitan más control y
+                personalización.
+              </p>
+              <strong>$89.900 COP/mes</strong>
+              <button className={styles.primary}>Ver más</button>
+            </div>
+            <div className={styles.plan}>
+              <h3>Plan Premium</h3>
+              <p>Diseñado para cadenas o negocios con necesidades personalizadas.</p>
+              <strong>$199.900 COP/mes</strong>
+              <button className={styles.primary}>Ver más</button>
             </div>
           </div>
         </div>
