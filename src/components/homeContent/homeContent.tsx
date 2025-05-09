@@ -32,8 +32,7 @@ export default function HomeContent() {
             la satisfacción de tus clientes hoy mismo.
           </p>
           <div className={styles.buttons}>
-            <button className={styles.primary}>Saber Más</button>
-            <button className={styles.outline}>Iniciemos</button>
+            <button className={styles.primary}> ¡Empecemos! </button>
           </div>
         </div>
       </section>
@@ -206,6 +205,48 @@ export default function HomeContent() {
                 colores, logotipos, texto de botones y más para reflejar la identidad de tu marca.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className={styles.tailored}>
+        <div className={`wideContainer ${styles.tailoredContainer}`}>
+          <div className={styles.tailoredTextsContainer}>
+            <h2>
+              <strong>
+                <AnimatedUnderline text="Personaliza" className="bottom-lg" />
+              </strong>{' '}
+              tu menú a la perfección con EasyMenu.
+            </h2>
+            <p>
+              Con EasyMenu, tienes el poder de crear un menú que refleje verdaderamente tu marca.
+              Personaliza todo, desde los colores y logotipos hasta el texto de los botones y las
+              imágenes de los productos, garantizando una experiencia única y atractiva para tus
+              clientes.
+            </p>
+            <ul>
+              <li>
+                <strong>Colores del menú:</strong> Haz que coincidan con la estética de tu marca.
+              </li>
+              <li>
+                <strong>Logos:</strong> Destaca la identidad de tu restaurante.
+              </li>
+              <li>
+                <strong>Texto de botones:</strong> Personaliza las llamadas a la acción.
+              </li>
+              <li>
+                <strong>Imágenes de productos:</strong> Atrae a los clientes con elementos visuales.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <Image
+              src="/tailor.webp"
+              alt="Imagen de un menú digital personalizado en una tablet"
+              width={512}
+              height={512}
+              loading="lazy"
+              objectFit="cover"
+            />
           </div>
         </div>
       </section>

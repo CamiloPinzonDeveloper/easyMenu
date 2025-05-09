@@ -318,3 +318,35 @@
         }
     }
 }
+
+.tailored {
+    background-color: #fff;
+
+    .tailoredContainer {
+        background-color: #fff;
+        display: flex;
+        gap: 2rem;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        flex-wrap: wrap;
+
+        .tailoredTextsContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            flex: 1;
+
+            h2 {
+                font-size: 2rem;
+                font-weight: 600;
+                text-wrap: balance;
+
+                strong {
+                    color: #283566;
+                }
+            }
+        }
+    }
+}
