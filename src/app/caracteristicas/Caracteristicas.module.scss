@@ -1,0 +1,39 @@
+.container {
+    background-color: white;
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .headerContainer {
+        text-align: center;
+
+        h1 {
+            text-wrap: balance;
+        }
+
+        p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+        }
+    }
+
+    .featuresContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+
+        .feature {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+        }
+    }
+
+}

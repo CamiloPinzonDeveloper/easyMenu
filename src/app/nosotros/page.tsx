@@ -57,6 +57,26 @@ const NosotrosPage = () => {
           />
         </div>
       </section>
+      <section className={`wideContainer ${styles.discover}`}>
+        <div>
+          <Image
+            src="/revo.webp"
+            alt="Mesas de un resturante en la noche"
+            width={512}
+            height={512}
+            loading="lazy"
+          />
+        </div>
+        <div className={styles.discoverTextContainer}>
+          <h1>Revolucionando las experiencias gastronómicas</h1>
+          <p>
+            En EasyMenu, imaginamos un futuro donde la tecnología se integre perfectamente con la
+            gastronomía, mejorando tanto la satisfacción de los clientes como la eficiencia
+            operativa. Nuestro objetivo es brindar a los propietarios de restaurantes herramientas
+            que simplifiquen la gestión del menú y eleven la experiencia gastronómica.
+          </p>
+        </div>
+      </section>
     </div>
   );
 };

@@ -5,7 +5,7 @@
 
 .underlineSvg {
     left: 0;
-    bottom: -0.2em;
+    bottom: var(--bottom, -0.2em);
     pointer-events: none;
     position: absolute;
     width: 100%;
