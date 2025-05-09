@@ -69,6 +69,9 @@ const Header = () => {
             <li>
               <Link href="/">Inicio</Link>
             </li>
+            <li>
+              <Link href="/nosotros">Nosotros</Link>
+            </li>
             {session ? (
               <>
                 <li>
