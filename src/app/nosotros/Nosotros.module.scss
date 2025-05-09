@@ -1,0 +1,54 @@
+.nosotros {
+    background-color: white;
+
+    .discover {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        padding: 2rem;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+
+        .discoverTextContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            flex: 1;
+
+            h1 {
+                font-size: 3rem;
+                font-weight: 700;
+                text-wrap: balance;
+                margin: 0;
+
+                span {
+                    color: #283566;
+                }
+            }
+
+            p {
+                font-size: 1.1rem;
+                line-height: 1.6;
+            }
+
+            &__keyPoints {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: 1rem;
+                text-align: center;
+
+                .boldPoint {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    text-wrap: balance;
+                    margin-bottom: 1rem;
+                    color: #283566;
+                }
+            }
+        }
+    }
+}
