@@ -78,9 +78,6 @@ const Header = () => {
             {session ? (
               <>
                 <li>
-                  <Link href="/dashboard">Dashboard</Link>
-                </li>
-                <li>
                   <Link href="/perfil">Perfil</Link>
                 </li>
                 <li>

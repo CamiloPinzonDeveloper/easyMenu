@@ -1,8 +1,12 @@
+'use client';
+
+import styles from './Perfil.module.scss';
+
 const Perfil = () => {
   return (
-    <div>
-      <h1>Perfil</h1>
-      <p>Esta es la página de perfil del usuario.</p>
+    <div className={styles.perfil}>
+      <section className={styles.userDatacontainer}>Información de usuario</section>
+      <section className={styles.actionContainer}>Display action component</section>
     </div>
   );
 };

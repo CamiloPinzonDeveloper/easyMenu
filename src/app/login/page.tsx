@@ -26,7 +26,7 @@ const LoginPage = () => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
         console.log('Sesión activa:', session);
-        router.push('/dashboard');
+        router.push('/pefil');
       } else {
         console.warn('No hay sesión activa');
       }
@@ -60,7 +60,7 @@ const LoginPage = () => {
     }
 
     setSuccessMessage('Iniciaste sesión correctamente');
-    router.push('/dashboard');
+    router.push('/perfil');
   };
 
   return (
