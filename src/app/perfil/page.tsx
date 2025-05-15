@@ -1,22 +1,22 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useSession } from '@supabase/auth-helpers-react';
+//import { useState, useEffect } from 'react';
+//import { useSession } from '@supabase/auth-helpers-react';
 //import { useRouter } from 'next/navigation';
 
-import UserInfo from '@/components/userInfo/userInfo';
-import { supabase } from '@/lib/supabaseClient';
-import type { IProfile } from './types';
+//import UserInfo from '@/components/userInfo/userInfo';
+//import { supabase } from '@/lib/supabaseClient';
+//import type { IProfile } from './types';
 
 import styles from './Perfil.module.scss';
 
 const Perfil = () => {
   //const router = useRouter();
-  const session = useSession();
+  //const session = useSession();
 
-  const [profile, setProfile] = useState<IProfile | null>(null);
+  //const [profile, setProfile] = useState<IProfile | null>(null);
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (session) {
       fetchUserData(session.user.id).then((data) => setProfile(data));
     } else {
@@ -24,9 +24,9 @@ const Perfil = () => {
       //router.push('/login');
       console.log('No session found, redirecting to login...');
     }
-  }, [session]);
+  }, [session]);*/
 
-  const fetchUserData = async (userId: string) => {
+  /*const fetchUserData = async (userId: string) => {
     const { data, error } = await supabase
       .from('profiles')
       .select(
@@ -51,13 +51,11 @@ const Perfil = () => {
     }
 
     return data;
-  };
+  };*/
 
   return (
     <div className={styles.perfil}>
-      <section className={styles.userDatacontainer}>
-        {profile && <UserInfo profile={profile} />}
-      </section>
+      <section className={styles.userDatacontainer}></section>
       <section className={styles.actionContainer}>Display action component</section>
     </div>
   );

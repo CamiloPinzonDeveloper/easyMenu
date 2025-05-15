@@ -4,36 +4,39 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import type { Session } from '@supabase/supabase-js';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '@/store';
+import { clearSession } from '@/store/slices/sessionSlice';
 
 import { supabase } from '@/lib/supabaseClient';
 
 import styles from './Header.module.scss';
 const Header = () => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [session, setSession] = useState<Session | null>(null);
+  const isAuthenticated = useSelector((state: RootState) => state.session.isAuthenticated);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-    });
-
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-    });
-
-    return () => {
-      listener?.subscription.unsubscribe();
+    const checkSession = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      if (session) {
+        console.log('Session:', session);
+      }
     };
-  }, []);
+    if (isAuthenticated) {
+      checkSession();
+    }
+  }, [isAuthenticated, router]);
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
   };
 
   const handleLogout = async () => {
-    await supabase.auth.signOut();
+    dispatch(clearSession());
     router.push('/login');
   };
 
@@ -75,7 +78,7 @@ const Header = () => {
             <li>
               <Link href="/caracteristicas">Características</Link>
             </li>
-            {session ? (
+            {isAuthenticated ? (
               <>
                 <li>
                   <Link href="/perfil">Perfil</Link>
