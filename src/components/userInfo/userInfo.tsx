@@ -2,12 +2,13 @@
 
 import Image from 'next/image';
 
-import type { IProfile } from '@/app/perfil/types';
+import { IProfile } from '@/types/types';
+import Divisor from '../divisor/divisor';
 
 import styles from './UserInfo.module.scss';
 
 const UserInfo = ({ profile }: { profile: IProfile }) => {
-  const { full_name, phone, address, avatar_url } = profile;
+  const { display_name, avatar_url, restaurants } = profile;
   const userAvatar = avatar_url ? avatar_url : `/avatar_${Math.random() < 0.5 ? 1 : 2}.webp`;
   return (
     <div className={styles.userInfo}>
@@ -15,16 +16,22 @@ const UserInfo = ({ profile }: { profile: IProfile }) => {
         <div className={styles.avatar}>
           <Image
             src={userAvatar}
-            alt="User Avatar"
+            alt={`${display_name} avatar`}
             width={180}
             height={180}
             loading="eager"
             priority
           />
+          {!avatar_url && <p>Sube tu avatar</p>}
         </div>
-        <h2 className={styles.userName}>{full_name}</h2>
-        <p className={styles.userPhone}>{phone}</p>
-        <p className={styles.userAddress}>{address}</p>
+        <h4 className={styles.userName}>{display_name}</h4>
+        <Divisor />
+        <h3>Comercios</h3>
+        {restaurants ? (
+          restaurants.map((restaurant) => <p key={restaurant.id}>{restaurant.name}</p>)
+        ) : (
+          <p>Añade un comercio</p>
+        )}
       </div>
     </div>
   );
