@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 import { IProfile } from '@/types/types';
 import Divisor from '../divisor/divisor';
+import AvatarUploader from '../AvatarUploader/AvatarUploader';
 
 import styles from './UserInfo.module.scss';
 
@@ -22,7 +23,7 @@ const UserInfo = ({ profile }: { profile: IProfile }) => {
             loading="eager"
             priority
           />
-          {!avatar_url && <p>Sube tu avatar</p>}
+          {!avatar_url && <AvatarUploader />}
         </div>
         <h4 className={styles.userName}>{display_name}</h4>
         <Divisor />

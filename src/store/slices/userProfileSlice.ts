@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { supabase } from '@/lib/supabaseClient';
 
 import { IProfile } from '@/types/types';
@@ -34,6 +34,11 @@ const userProfileSlice = createSlice({
       state.loading = false;
       state.error = null;
     },
+    updateAvatar: (state, action: PayloadAction<string>) => {
+      if (state.profile) {
+        state.profile.avatar_url = action.payload;
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -52,5 +57,5 @@ const userProfileSlice = createSlice({
   },
 });
 
-export const { clearUserProfile } = userProfileSlice.actions;
+export const { clearUserProfile, updateAvatar } = userProfileSlice.actions;
 export default userProfileSlice.reducer;
