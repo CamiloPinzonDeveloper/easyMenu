@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 
 import { useUserProfile } from '@/hooks/useUserProfile';
 import UserInfo from '@/components/userInfo/userInfo';
+import TabLayOut from '@/components/TabLayOut/TabLayOut';
 
 import styles from './Perfil.module.scss';
 
@@ -28,7 +29,9 @@ const Perfil = () => {
   return (
     <div className={styles.perfil}>
       <div className={styles.userInfoContainer}>{profile && <UserInfo profile={profile} />}</div>
-      <div className={styles.actionContainer}></div>
+      <div className={styles.actionContainer}>
+        <TabLayOut />
+      </div>
     </div>
   );
 };
