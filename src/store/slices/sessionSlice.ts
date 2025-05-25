@@ -30,8 +30,12 @@ const sessionSlice = createSlice({
       state.isAuthenticated = false;
       state.user = null;
     },
+    initializeSession: (state, action: PayloadAction<SessionState>) => {
+      state.isAuthenticated = action.payload.isAuthenticated;
+      state.user = action.payload.user;
+    },
   },
 });
 
-export const { setSession, clearSession } = sessionSlice.actions;
+export const { setSession, clearSession, initializeSession } = sessionSlice.actions;
 export default sessionSlice.reducer;

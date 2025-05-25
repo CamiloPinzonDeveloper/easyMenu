@@ -1,7 +1,8 @@
 'use client';
 
 import { Provider } from 'react-redux';
-import { store } from '@/store/';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from '@/store/';
 
 import Header from '@components/header/header';
 import Footer from '@components/footer/footer';
@@ -11,9 +12,11 @@ import { ReactNode } from 'react';
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <Provider store={store}>
-      <Header />
-      <main>{children}</main>
-      <Footer />
+      <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </PersistGate>
     </Provider>
   );
 };
