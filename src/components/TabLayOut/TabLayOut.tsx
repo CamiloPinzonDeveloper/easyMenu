@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import ProfileForm from '../ProfileForm/ProfileForm';
+
 import styles from './TabLayOut.module.scss';
 
 const tabs = ['Perfil', 'Comercios', 'Tutoriales'];
@@ -26,7 +28,11 @@ const TabLayOut = () => {
         ))}
       </aside>
       <main className={styles.tabContent}>
-        {activeTab === 0 && <div>Overview Perfil</div>}
+        {activeTab === 0 && (
+          <div>
+            <ProfileForm />
+          </div>
+        )}
         {activeTab === 1 && <div>Orders Comercios</div>}
         {activeTab === 2 && <div>Settings Tutoriales</div>}
       </main>
