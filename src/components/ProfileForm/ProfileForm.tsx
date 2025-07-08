@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSelector } from 'react-redux';
 import type { RootState } from '../../store';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { useUserProfile } from '@/hooks/useUserProfile';
+import { updateUserProfile } from '../../store/slices/userProfileSlice';
 
 import { IProfile } from '@/types/types';
 
@@ -21,7 +22,8 @@ const ProfileForm = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [defaultValues, setDefaultValues] = useState(initialValues);
   const router = useRouter();
-  const session = useSelector((state: RootState) => state.session);
+  const session = useAppSelector((state: RootState) => state.session);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (session.isAuthenticated === false) {
@@ -52,6 +54,20 @@ const ProfileForm = () => {
       [name]: value,
     }));
     setIsEditing(true);
+  };
+
+  const handleUpdateProfile = () => {
+    if (!profile) return;
+    dispatch(
+      updateUserProfile({
+        userId: profile.id,
+        updatedData: {
+          display_name: defaultValues.display_name,
+          phone: defaultValues.phone,
+          address: defaultValues.address,
+        },
+      })
+    );
   };
 
   return (
@@ -92,7 +108,12 @@ const ProfileForm = () => {
               onChange={onChangeHandler}
             />
           </div>
-          <input type="button" value="Actualizar" disabled={!isEditing} />
+          <input
+            type="button"
+            value="Actualizar"
+            disabled={!isEditing}
+            onClick={handleUpdateProfile}
+          />
         </form>
       ) : (
         <p>No se encontraron datos del perfil.</p>

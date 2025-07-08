@@ -10,11 +10,34 @@ const initialState: IUserProfileState = {
   error: null,
 };
 
-export const fetchUserProfile = createAsyncThunk(
+const fetchUserProfile = createAsyncThunk(
   'userProfile/fetchUserProfile',
   async (userId: string, { rejectWithValue }) => {
     try {
       const { data, error } = await supabase.from('profiles').select('*').eq('id', userId).single();
+
+      if (error) return rejectWithValue(error.message);
+
+      return data as IProfile;
+    } catch (error) {
+      return rejectWithValue((error as Error).message);
+    }
+  }
+);
+
+const updateUserProfile = createAsyncThunk(
+  'userProfile/updateUserProfile',
+  async (
+    { userId, updatedData }: { userId: string; updatedData: Partial<IProfile> },
+    { rejectWithValue }
+  ) => {
+    try {
+      const { data, error } = await supabase
+        .from('profiles')
+        .update(updatedData)
+        .eq('id', userId)
+        .select()
+        .single();
 
       if (error) return rejectWithValue(error.message);
 
@@ -53,9 +76,22 @@ const userProfileSlice = createSlice({
       .addCase(fetchUserProfile.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as string;
+      })
+      .addCase(updateUserProfile.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateUserProfile.fulfilled, (state, action) => {
+        state.loading = false;
+        state.profile = action.payload as IProfile;
+      })
+      .addCase(updateUserProfile.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
       });
   },
 });
 
 export const { clearUserProfile, updateAvatar } = userProfileSlice.actions;
+export { fetchUserProfile, updateUserProfile };
 export default userProfileSlice.reducer;
