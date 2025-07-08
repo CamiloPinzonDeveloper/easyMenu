@@ -9,6 +9,8 @@ import { updateUserProfile } from '../../store/slices/userProfileSlice';
 
 import { IProfile } from '@/types/types';
 
+import styles from './ProfileForm.module.scss';
+
 const initialValues: IProfile = {
   id: '',
   created_at: '',
@@ -73,37 +75,55 @@ const ProfileForm = () => {
   return (
     <div>
       {profile ? (
-        <form>
-          <div>
-            <label htmlFor="display_name">Nombre de usuario:</label>
+        <form className={styles.formContainer}>
+          <div className={styles.formGroup}>
+            <label htmlFor="display_name" className={styles.label}>
+              Nombre de usuario:
+            </label>
             <input
               type="text"
               id="display_name"
               name="display_name"
+              className={styles.input}
               value={defaultValues.display_name}
               onChange={onChangeHandler}
             />
           </div>
-          <div>
-            <label htmlFor="email">Correo electr&oacute;nico:</label>
-            <input type="email" id="email" name="email" value={defaultValues.email} readOnly />
+          <div className={styles.formGroup}>
+            <label htmlFor="email" className={styles.label}>
+              Correo electrónico:
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className={styles.input}
+              value={defaultValues.email}
+              readOnly
+            />
           </div>
-          <div>
-            <label htmlFor="phone">Tel&eacute;fono:</label>
+          <div className={styles.formGroup}>
+            <label htmlFor="phone" className={styles.label}>
+              Teléfono:
+            </label>
             <input
               type="tel"
               id="phone"
               name="phone"
+              className={styles.input}
               value={defaultValues.phone}
               onChange={onChangeHandler}
             />
           </div>
-          <div>
-            <label htmlFor="address">Direcci&oacute;n:</label>
+          <div className={styles.formGroup}>
+            <label htmlFor="address" className={styles.label}>
+              Dirección:
+            </label>
             <input
               type="text"
               id="address"
               name="address"
+              className={styles.input}
               value={defaultValues.address}
               onChange={onChangeHandler}
             />
@@ -111,12 +131,13 @@ const ProfileForm = () => {
           <input
             type="button"
             value="Actualizar"
+            className={styles.button}
             disabled={!isEditing}
             onClick={handleUpdateProfile}
           />
         </form>
       ) : (
-        <p>No se encontraron datos del perfil.</p>
+        <p className={styles.noProfile}>No se encontraron datos del perfil.</p>
       )}
     </div>
   );
