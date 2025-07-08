@@ -10,9 +10,15 @@ import Button from '../button/button';
 
 import styles from './UserInfo.module.scss';
 
-const UserInfo = ({ profile }: { profile: IProfile }) => {
+interface IUserInfoProps {
+  profile: IProfile;
+  goToTab: (tabIndex: number) => void;
+}
+
+const UserInfo = ({ profile, goToTab }: IUserInfoProps) => {
   const { display_name, avatar_url, restaurants } = profile;
   const userAvatar = avatar_url ? avatar_url : `/avatar_${Math.random() < 0.5 ? 1 : 2}.webp`;
+
   return (
     <div className={styles.userInfo}>
       <div className={styles.userData}>
@@ -33,7 +39,7 @@ const UserInfo = ({ profile }: { profile: IProfile }) => {
         {restaurants ? (
           restaurants.map((restaurant) => <p key={restaurant.id}>{restaurant.name}</p>)
         ) : (
-          <Button kind="cta" handleClick={() => {}} buttonText="Añadir comercio" />
+          <Button kind="cta" handleClick={() => goToTab(1)} buttonText="Añadir comercio" />
         )}
       </div>
     </div>

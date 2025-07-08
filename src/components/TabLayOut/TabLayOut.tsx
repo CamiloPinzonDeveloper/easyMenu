@@ -1,40 +1,39 @@
 'use client';
 
-import { useState } from 'react';
-
 import ProfileForm from '../ProfileForm/ProfileForm';
-
 import styles from './TabLayOut.module.scss';
 
-const tabs = ['Perfil', '+ Comercio', 'Tutoriales'];
+import { Plus } from 'lucide-react';
 
-const TabLayOut = () => {
-  const [activeTab, setActiveTab] = useState(0);
+interface ITabLayOutProps {
+  customActiveTab: number; // ✅ obligatorio
+  setCustomActiveTab: (index: number) => void; // ✅ obligatorio
+}
 
-  const handleTabClick = (index: number) => {
-    setActiveTab(index);
+const tabs = [<>Perfil</>, <>{<Plus />} Comercios</>, <>Tutoriales</>];
+
+const TabLayOut = ({ customActiveTab, setCustomActiveTab }: ITabLayOutProps) => {
+  const handleTabChange = (index: number) => {
+    setCustomActiveTab(index);
   };
+
   return (
     <div className={styles.tabLayout}>
       <aside className={styles.sidebar}>
         {tabs.map((tab, idx) => (
           <button
             key={idx}
-            className={activeTab === idx ? styles.active : ''}
-            onClick={() => handleTabClick(idx)}
+            className={customActiveTab === idx ? styles.active : ''}
+            onClick={() => handleTabChange(idx)}
           >
             {tab}
           </button>
         ))}
       </aside>
       <main className={styles.tabContent}>
-        {activeTab === 0 && (
-          <div>
-            <ProfileForm />
-          </div>
-        )}
-        {activeTab === 1 && <div>Crear Comercio</div>}
-        {activeTab === 2 && <div>Settings Tutoriales</div>}
+        {customActiveTab === 0 && <ProfileForm />}
+        {customActiveTab === 1 && <div>Crear Comercio</div>}
+        {customActiveTab === 2 && <div>Settings Tutoriales</div>}
       </main>
     </div>
   );

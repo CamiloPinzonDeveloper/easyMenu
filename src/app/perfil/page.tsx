@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store';
 import { useRouter } from 'next/navigation';
@@ -12,6 +12,7 @@ import TabLayOut from '@/components/TabLayOut/TabLayOut';
 import styles from './Perfil.module.scss';
 
 const Perfil = () => {
+  const [activeTab, setActiveTab] = useState(0);
   const router = useRouter();
   const session = useSelector((state: RootState) => state.session);
 
@@ -28,9 +29,11 @@ const Perfil = () => {
 
   return (
     <div className={styles.perfil}>
-      <div className={styles.userInfoContainer}>{profile && <UserInfo profile={profile} />}</div>
+      <div className={styles.userInfoContainer}>
+        {profile && <UserInfo profile={profile} goToTab={setActiveTab} />}
+      </div>
       <div className={styles.actionContainer}>
-        <TabLayOut />
+        <TabLayOut customActiveTab={activeTab} setCustomActiveTab={setActiveTab} />
       </div>
     </div>
   );

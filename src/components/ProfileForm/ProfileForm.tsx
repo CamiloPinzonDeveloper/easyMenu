@@ -6,6 +6,7 @@ import type { RootState } from '../../store';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { useUserProfile } from '@/hooks/useUserProfile';
 import { updateUserProfile } from '../../store/slices/userProfileSlice';
+import Button from '../button/button';
 
 import { IProfile } from '@/types/types';
 
@@ -128,12 +129,12 @@ const ProfileForm = () => {
               onChange={onChangeHandler}
             />
           </div>
-          <input
-            type="button"
-            value="Actualizar"
-            className={styles.button}
+          <Button
+            kind="cta"
+            type="submit"
             disabled={!isEditing}
-            onClick={handleUpdateProfile}
+            handleClick={handleUpdateProfile}
+            buttonText="Actualizar Perfil"
           />
         </form>
       ) : (
