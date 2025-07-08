@@ -6,6 +6,8 @@ import { IProfile } from '@/types/types';
 import Divisor from '../divisor/divisor';
 import AvatarUploader from '../AvatarUploader/AvatarUploader';
 
+import Button from '../button/button';
+
 import styles from './UserInfo.module.scss';
 
 const UserInfo = ({ profile }: { profile: IProfile }) => {
@@ -31,7 +33,7 @@ const UserInfo = ({ profile }: { profile: IProfile }) => {
         {restaurants ? (
           restaurants.map((restaurant) => <p key={restaurant.id}>{restaurant.name}</p>)
         ) : (
-          <p>Añade un comercio</p>
+          <Button kind="cta" handleClick={() => {}} buttonText="Añadir comercio" />
         )}
       </div>
     </div>

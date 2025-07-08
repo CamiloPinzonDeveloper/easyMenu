@@ -6,7 +6,7 @@ import ProfileForm from '../ProfileForm/ProfileForm';
 
 import styles from './TabLayOut.module.scss';
 
-const tabs = ['Perfil', 'Comercios', 'Tutoriales'];
+const tabs = ['Perfil', '+ Comercio', 'Tutoriales'];
 
 const TabLayOut = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -33,7 +33,7 @@ const TabLayOut = () => {
             <ProfileForm />
           </div>
         )}
-        {activeTab === 1 && <div>Orders Comercios</div>}
+        {activeTab === 1 && <div>Crear Comercio</div>}
         {activeTab === 2 && <div>Settings Tutoriales</div>}
       </main>
     </div>
