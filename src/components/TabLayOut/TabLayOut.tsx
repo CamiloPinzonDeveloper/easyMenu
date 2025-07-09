@@ -1,16 +1,17 @@
 'use client';
 
 import ProfileForm from '../ProfileForm/ProfileForm';
+import CreateRestaurantWizard from '../CreateRestaurantWizard/CreateRestaurantWizard';
 import styles from './TabLayOut.module.scss';
 
 import { Plus } from 'lucide-react';
 
 interface ITabLayOutProps {
-  customActiveTab: number; // ✅ obligatorio
-  setCustomActiveTab: (index: number) => void; // ✅ obligatorio
+  customActiveTab: number;
+  setCustomActiveTab: (index: number) => void;
 }
 
-const tabs = [<>Perfil</>, <>{<Plus />} Comercios</>, <>Tutoriales</>];
+const tabs = [<>Perfil</>, <>{<Plus />} Comercio</>, <>Tutoriales</>];
 
 const TabLayOut = ({ customActiveTab, setCustomActiveTab }: ITabLayOutProps) => {
   const handleTabChange = (index: number) => {
@@ -32,7 +33,11 @@ const TabLayOut = ({ customActiveTab, setCustomActiveTab }: ITabLayOutProps) => 
       </aside>
       <main className={styles.tabContent}>
         {customActiveTab === 0 && <ProfileForm />}
-        {customActiveTab === 1 && <div>Crear Comercio</div>}
+        {customActiveTab === 1 && (
+          <div>
+            <CreateRestaurantWizard />
+          </div>
+        )}
         {customActiveTab === 2 && <div>Settings Tutoriales</div>}
       </main>
     </div>
