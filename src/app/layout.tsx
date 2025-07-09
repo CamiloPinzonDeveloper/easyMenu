@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Lexend } from 'next/font/google';
 
-import Layout from '@components/layout/layout';
+import Providers from '@/components/Providers/Providers';
+import Header from '@/components/header/header';
+import Footer from '@/components/footer/footer';
 
 import './globals.css';
 
@@ -26,16 +28,18 @@ export const metadata: Metadata = {
   description: 'Menús digitales sencillos para cada mesa',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={`${geistSans.variable} ${geistMono.variable} ${lexend.variable} `}>
-        <Layout>{children}</Layout>
+        <Providers>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
 }
+export const dynamic = 'force-dynamic'; // This is required for the metadata to be dynamic
+export const revalidate = 0; // This is required for the metadata to be dynamic

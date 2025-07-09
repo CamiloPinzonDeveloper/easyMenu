@@ -4,24 +4,8 @@ import { FormProvider, useForm } from 'react-hook-form';
 import Step1_BasicInfo from './Step1_BasicInfo';
 import Step2_StyleConfig from './Step2_StyleConfig';
 
+import { RestaurantFormData } from '@/types/types';
 import styles from './styles/Wizard.module.scss';
-
-export type RestaurantFormData = {
-  name: string;
-  description?: string;
-  address?: string;
-
-  // Logo file
-  logo?: FileList;
-
-  // Estilos personalizados
-  color_primary?: string;
-  color_secondary?: string;
-  color_text?: string;
-  color_price?: string;
-  button_background?: string;
-  button_text?: string;
-};
 
 const CreateRestaurantWizard = () => {
   const [step, setStep] = useState(0);

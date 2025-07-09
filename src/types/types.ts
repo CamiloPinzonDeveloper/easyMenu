@@ -18,3 +18,16 @@ export interface IUserProfileState {
   loading: boolean;
   error: string | null;
 }
+
+export type RestaurantFormData = {
+  name: string;
+  description?: string;
+  address?: string;
+  logo?: FileList;
+  color_primary?: string;
+  color_secondary?: string;
+  color_text?: string;
+  color_price?: string;
+  button_background?: string;
+  button_text?: string;
+};

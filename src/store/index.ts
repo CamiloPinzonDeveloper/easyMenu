@@ -1,22 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import sessionReducer from './slices/sessionSlice';
-import userProfileReducer from './slices/userProfileSlice';
+
+import rootReducer from './RootReducer';
 
 const persistConfig = {
-  key: 'session',
+  key: 'root',
   storage,
-  whitelist: ['isAuthenticated', 'user'],
+
+  whitelist: ['session'],
 };
 
-const persistedSessionReducer = persistReducer(persistConfig, sessionReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: {
-    session: persistedSessionReducer,
-    userProfile: userProfileReducer,
-  },
+  reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
@@ -25,7 +23,6 @@ export const store = configureStore({
     }),
 });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-
 export const persistor = persistStore(store);
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
