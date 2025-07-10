@@ -1,18 +1,5 @@
-import { UseFormRegister } from 'react-hook-form';
-
+import { FormInputProps } from '@/types/types';
 import styles from './formInput.module.scss';
-
-interface FormInputProps {
-  label: string;
-  type: string;
-  placeholder: string;
-  handleFormChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  name: string;
-  value?: string;
-  required?: boolean;
-  disabled?: boolean;
-  register?: UseFormRegister<Record<string, unknown>>;
-}
 
 const FormInput = ({
   label,
@@ -23,35 +10,40 @@ const FormInput = ({
   value,
   required,
   disabled,
-  register,
 }: FormInputProps) => {
+  const isFileInput = type === 'file';
+  const isColorInput = type === 'color';
+  const isTextarea = type === 'textarea';
+
   return (
     <div className={styles.formInput}>
       <label htmlFor={name} className={styles.label}>
         {label}
       </label>
-      {type === 'textarea' ? (
+
+      {isTextarea ? (
         <textarea
           placeholder={placeholder}
           className={styles.input}
-          value={value}
+          value={typeof value === 'string' ? value : ''}
           required={required}
           disabled={disabled}
-          {...(register ? register(name) : { name, onChange: handleFormChange })}
+          onChange={handleFormChange}
+          name={name}
         />
       ) : (
         <input
           type={type}
-          placeholder={placeholder}
+          placeholder={!isFileInput ? placeholder : ''}
           className={
-            (type === 'file' && styles.fileInput) || type === 'color'
-              ? styles.colorInput
-              : styles.input
+            isFileInput ? styles.fileInput : isColorInput ? styles.colorInput : styles.input
           }
-          value={value}
+          name={name}
+          onChange={handleFormChange}
           required={required}
           disabled={disabled}
-          {...(register ? register(name) : { name, onChange: handleFormChange })}
+          accept={isFileInput ? 'image/*' : undefined}
+          {...(!isFileInput && { value: typeof value === 'string' ? value : '' })}
         />
       )}
     </div>

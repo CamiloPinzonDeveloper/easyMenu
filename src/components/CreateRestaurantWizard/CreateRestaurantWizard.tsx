@@ -1,45 +1,44 @@
+'use client';
+
 import { useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
-
 import Step1_BasicInfo from './Step1_BasicInfo';
-import Step2_StyleConfig from './Step2_StyleConfig';
-
+import Step2_Styling from './Step2_Styling';
 import { RestaurantFormData } from '@/types/types';
-import styles from './styles/Wizard.module.scss';
 
 const CreateRestaurantWizard = () => {
-  const [step, setStep] = useState(0);
-  const methods = useForm<RestaurantFormData>({ mode: 'onTouched' });
+  const [step, setStep] = useState(1);
 
-  const nextStep = () => setStep((prev) => prev + 1);
-  const prevStep = () => setStep((prev) => prev - 1);
+  const [formData, setFormData] = useState<RestaurantFormData>({
+    business_name: '',
+    description: '',
+    logo_url: '',
+    subdomain: '',
 
-  const onSubmit = async (data: RestaurantFormData) => {
-    console.log('Datos del restaurante:', data);
-    // Send to supabase
-  };
+    color_background: '#ffffff',
+    color_primary: '#000000',
+    color_secondary: '#777777',
+    color_price: '#ff0000',
+    color_button: '#000000',
+    color_button_text: '#ffffff',
+
+    font_family: 'Lexend',
+    font_size: 'medium',
+    font_style: 'normal',
+
+    menu_layout: 'list',
+    show_dish_images: true,
+    show_allergen_icons: false,
+    highlight_discounted: false,
+  });
+
+  const nextStep = () => setStep((s) => s + 1);
+  const prevStep = () => setStep((s) => s - 1);
 
   return (
-    <FormProvider {...methods}>
-      <form className={styles.wizard} onSubmit={methods.handleSubmit(onSubmit)}>
-        {step === 0 && <Step1_BasicInfo />}
-        {step === 1 && <Step2_StyleConfig />}
-
-        <div className={styles.navigation}>
-          {step > 0 && (
-            <button type="button" onClick={prevStep}>
-              Atrás
-            </button>
-          )}
-          {step < 1 && (
-            <button type="button" onClick={nextStep}>
-              Siguiente
-            </button>
-          )}
-          {step === 1 && <button type="submit">Crear Restaurante</button>}
-        </div>
-      </form>
-    </FormProvider>
+    <div>
+      {step === 1 && <Step1_BasicInfo data={formData} setData={setFormData} next={nextStep} />}
+      {step === 2 && <Step2_Styling data={formData} setData={setFormData} back={prevStep} />}
+    </div>
   );
 };
 
