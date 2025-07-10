@@ -132,7 +132,7 @@ const LoginPage = () => {
 
       <div className={styles.registerContainer}>
         <p>
-          No tienes una cuenta? <a href="/register">Regístrate</a>
+          No tienes una cuenta? <a href="/registro">Regístrate</a>
         </p>
         <p>
           Olvidaste tu contraseña? <a href="/recuperacion">Recuperar contraseña</a>

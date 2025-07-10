@@ -1,3 +1,5 @@
+import { UseFormRegister } from 'react-hook-form';
+
 import styles from './formInput.module.scss';
 
 interface FormInputProps {
@@ -9,6 +11,7 @@ interface FormInputProps {
   value?: string;
   required?: boolean;
   disabled?: boolean;
+  register?: UseFormRegister<Record<string, unknown>>;
 }
 
 const FormInput = ({
@@ -20,22 +23,37 @@ const FormInput = ({
   value,
   required,
   disabled,
+  register,
 }: FormInputProps) => {
   return (
     <div className={styles.formInput}>
       <label htmlFor={name} className={styles.label}>
         {label}
       </label>
-      <input
-        type={type}
-        placeholder={placeholder}
-        onChange={handleFormChange}
-        name={name}
-        className={styles.input}
-        value={value}
-        required={required}
-        disabled={disabled}
-      />
+      {type === 'textarea' ? (
+        <textarea
+          placeholder={placeholder}
+          className={styles.input}
+          value={value}
+          required={required}
+          disabled={disabled}
+          {...(register ? register(name) : { name, onChange: handleFormChange })}
+        />
+      ) : (
+        <input
+          type={type}
+          placeholder={placeholder}
+          className={
+            (type === 'file' && styles.fileInput) || type === 'color'
+              ? styles.colorInput
+              : styles.input
+          }
+          value={value}
+          required={required}
+          disabled={disabled}
+          {...(register ? register(name) : { name, onChange: handleFormChange })}
+        />
+      )}
     </div>
   );
 };

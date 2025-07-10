@@ -6,6 +6,7 @@ import type { RootState } from '../../store';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { useUserProfile } from '@/hooks/useUserProfile';
 import { updateUserProfile } from '../../store/slices/userProfileSlice';
+import FormInput from '../formInput/formInput';
 import Button from '../button/button';
 
 import { IProfile } from '@/types/types';
@@ -50,7 +51,7 @@ const ProfileForm = () => {
   if (loading) return <p>Cargando perfil...</p>;
   if (error) return <p>Error: {error}</p>;
 
-  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setDefaultValues((prevValues) => ({
       ...prevValues,
@@ -77,58 +78,42 @@ const ProfileForm = () => {
     <div>
       {profile ? (
         <form className={styles.formContainer}>
-          <div className={styles.formGroup}>
-            <label htmlFor="display_name" className={styles.label}>
-              Nombre de usuario:
-            </label>
-            <input
-              type="text"
-              id="display_name"
-              name="display_name"
-              className={styles.input}
-              value={defaultValues.display_name}
-              onChange={onChangeHandler}
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="email" className={styles.label}>
-              Correo electrónico:
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className={styles.input}
-              value={defaultValues.email}
-              readOnly
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="phone" className={styles.label}>
-              Teléfono:
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              className={styles.input}
-              value={defaultValues.phone}
-              onChange={onChangeHandler}
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="address" className={styles.label}>
-              Dirección:
-            </label>
-            <input
-              type="text"
-              id="address"
-              name="address"
-              className={styles.input}
-              value={defaultValues.address}
-              onChange={onChangeHandler}
-            />
-          </div>
+          <FormInput
+            label="Nombre de usuario:"
+            type="text"
+            placeholder="Ingresa tu nombre de usuario"
+            handleFormChange={onChangeHandler}
+            name="display_name"
+            value={defaultValues.display_name}
+            required
+          />
+          <FormInput
+            label="Correo electrónico:"
+            type="email"
+            placeholder="Ingresa tu correo electrónico"
+            handleFormChange={onChangeHandler}
+            name="email"
+            value={defaultValues.email}
+            required
+          />
+          <FormInput
+            label="Teléfono:"
+            type="tel"
+            placeholder="Ingresa tu número de teléfono"
+            handleFormChange={onChangeHandler}
+            name="phone"
+            value={defaultValues.phone}
+            required
+          />
+          <FormInput
+            label="Dirección:"
+            type="text"
+            placeholder="Ingresa tu dirección"
+            handleFormChange={onChangeHandler}
+            name="address"
+            value={defaultValues.address}
+            required
+          />
           <Button
             kind="cta"
             type="submit"
