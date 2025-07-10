@@ -6,6 +6,7 @@ import type { RootState } from '../../store';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { useUserProfile } from '@/hooks/useUserProfile';
 import { updateUserProfile } from '../../store/slices/userProfileSlice';
+import FormContainer from '../formContainer/formContainer';
 import FormInput from '../formInput/formInput';
 import Button from '../button/button';
 
@@ -75,9 +76,9 @@ const ProfileForm = () => {
   };
 
   return (
-    <div>
+    <FormContainer>
       {profile ? (
-        <form className={styles.formContainer}>
+        <form>
           <FormInput
             label="Nombre de usuario:"
             type="text"
@@ -125,7 +126,7 @@ const ProfileForm = () => {
       ) : (
         <p className={styles.noProfile}>No se encontraron datos del perfil.</p>
       )}
-    </div>
+    </FormContainer>
   );
 };
 

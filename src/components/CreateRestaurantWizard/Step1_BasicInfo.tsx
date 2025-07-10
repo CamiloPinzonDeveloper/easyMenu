@@ -2,35 +2,37 @@
 
 import { useFormContext } from 'react-hook-form';
 
+import FormContainer from '../formContainer/formContainer';
 import FormInput from '../formInput/formInput';
-import styles from './styles/Wizard.module.scss';
 
 const Step1_BasicInfo = () => {
   const { register } = useFormContext();
 
   return (
-    <div className={styles.step}>
+    <>
       <h2>Información Básica</h2>
-      <FormInput
-        label="Nombre del restaurante:"
-        type="text"
-        placeholder="Ingresa el nombre del restaurante"
-        handleFormChange={() => {}}
-        name="name"
-        register={register}
-        required
-      />
+      <FormContainer>
+        <FormInput
+          label="Nombre del restaurante:"
+          type="text"
+          placeholder="Ingresa el nombre del restaurante"
+          handleFormChange={() => {}}
+          name="name"
+          register={register}
+          required
+        />
 
-      <FormInput
-        label="Descripción:"
-        type="textarea"
-        placeholder="Ingresa una descripción del restaurante"
-        handleFormChange={() => {}}
-        name="description"
-        register={register}
-        required
-      />
-    </div>
+        <FormInput
+          label="Descripción:"
+          type="textarea"
+          placeholder="Ingresa una descripción del restaurante"
+          handleFormChange={() => {}}
+          name="description"
+          register={register}
+          required
+        />
+      </FormContainer>
+    </>
   );
 };
 
